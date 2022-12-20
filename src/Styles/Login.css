@@ -1,0 +1,12 @@
+.login-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-box {
+    width: 50%;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
