@@ -1,0 +1,99 @@
+import React from "react";
+import { Alert, Button } from "reactstrap";
+import { firestore } from "../config";
+import "../Styles/Profile.css"
+
+class Profile extends React.Component {
+    constructor () {
+        super ()
+        this.state = {
+            userDetails: {},
+            yearOfStudy: "",
+            collegeName: "",
+            contactNumber: "",
+            address: "",
+            position: "",
+            gender: "",
+            city: "",
+            state: "",
+            pinCode: ""
+        }
+    }
+    componentDidMount () {
+        firestore.collection("users").doc(localStorage.getItem("uid")).get().then(document => {
+            this.setState ({userDetails: document.data()})
+            if (document.data().contactNumber) {
+                const {contactNumber, pinCode, address, gender, city, state, collegeName, yearOfStudy, position} = document.data()
+                this.setState ({
+                    contactNumber: contactNumber,
+                    pinCode: pinCode,
+                    address: address,
+                    gender: gender,
+                    city: city,
+                    state: state,
+                    collegeName: collegeName,
+                    yearOfStudy: yearOfStudy,
+                    position: position
+                }, () => console.log(this.state))
+            }
+        }).catch(err => console.log(err.message))
+    }
+    render () {
+        const onChange = (event) => {
+            const {name, value} = event.target
+            this.setState({[name]: value})
+        }
+        const onSubmit = () => {
+            firestore.collection("users").doc(this.state.userDetails.uid).update ({
+                isProfileComplete: true,
+                address: this.state.address,
+                city: this.state.city,
+                collegeName: this.state.collegeName,
+                pinCode: this.state.pinCode,
+                gender: this.state.gender,
+                state: this.state.state,
+                position: this.state.position,
+                yearOfStudy: this.state.yearOfStudy,
+                contactNumber: this.state.contactNumber,
+            }).then (() => {
+                window.location.reload()
+            }).catch(err => console.log(err.message))
+        }
+        return (
+            <div>
+                <div className="profile-photo-background">
+                    {this.state.userDetails.photoURL ? 
+                    <img className="profile-photo" src={this.state.userDetails.photoURL} alt="profile" />:
+                    // <i className="fa fa-user profile-photo"></i>}
+                    null}               
+                </div>
+                <div className="profile-container">
+                    <h3>{this.state.userDetails.name}</h3>
+                    {this.state.userDetails.isProfileComplete ? null : 
+                    <Alert color="warning">
+                        Please complete your profile to register for the events
+                    </Alert>}
+                    <div className="profile-content">
+                        <input disabled={true} style={{color:"black"}} value={this.state.userDetails.email} className="profile-input" />
+                        <input onChange={onChange} name="collegeName" placeholder="College Name" value={this.state.collegeName} className="profile-input" />
+                        <input onChange={onChange} name="yearOfStudy" placeholder="Year of Study" value={this.state.yearOfStudy} className="profile-input" />
+                        <input onChange={onChange} name="contactNumber" placeholder="Contact Number" value={this.state.contactNumber} className="profile-input" />
+                        <input onChange={onChange} name="position" placeholder="Your Position" value={this.state.position} className="profile-input" />
+                        <input onChange={onChange} name="gender" placeholder="Gender" value={this.state.gender} className="profile-input" />
+                        <input onChange={onChange} name="address" placeholder="College Address" value={this.state.address} className="profile-input" />
+                        <input onChange={onChange} name="city" placeholder="City" value={this.state.city} className="profile-input" />
+                        <input onChange={onChange} name="state" placeholder="State" value={this.state.state} className="profile-input" />
+                        <input onChange={onChange} name="pinCode" placeholder="Pin Code" value={this.state.pinCode} className="profile-input" />
+                    </div>
+                    <div style={{display:"flex", justifyContent:"center"}}>
+                        <Button onClick={onSubmit} color="success" style={{width:"150px"}}>
+                            SAVE
+                        </Button>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
+
+export default Profile

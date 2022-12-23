@@ -27,18 +27,22 @@ export const googleRegistration = () => firebase.auth().signInWithPopup(provider
             email: email,
             uid: uid,
             photo: photoURL,
+            isProfileComplete: false,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         }).then (() => {
+            localStorage.setItem("uid", uid)
             alert("Success Login")
         }).catch(err => alert(err.message))
     }
     else {
+        localStorage.setItem("uid", uid)
         alert("Success Login")
     }
 }).catch((err) => console.log(err.message))
 
 export const loginMethod = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password).then((result) => {
-    console.log(result);
+    localStorage.setItem("uid", result.user.uid)
+    alert("Success Login")
 }).catch(err => {console.log(err.message)})
 
 export const signinMethod = (name, email, password) => firebase.auth().createUserWithEmailAndPassword(email, password).then((result) => {
@@ -48,12 +52,15 @@ export const signinMethod = (name, email, password) => firebase.auth().createUse
             email: email,
             uid: result.user.uid,
             photo: null,
+            isProfileComplete: false,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         }).then (() => {
+            localStorage.setItem("uid", result.user.uid)
             alert("Success Login")
         }).catch(err => alert(err.message))
     }
     else {
+        localStorage.setItem("uid", result.user.uid)
         alert("Success Login")
     }
 }).catch(err => {console.log(err.message)})

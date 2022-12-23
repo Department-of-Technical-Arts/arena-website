@@ -10,3 +10,11 @@
     display: flex;
     flex-direction: column;
 }
+
+.google-login-button {
+    margin: 20px;
+    width: max-content;
+    align-self: center;
+    background-color: #DB4437;
+    color:white;
+}
