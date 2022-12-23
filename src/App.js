@@ -4,7 +4,8 @@ import { Routes, Route } from "react-router-dom"
 import { auth } from "./config"
 import Login from './Pages/Login';
 import Profile from './Pages/Profile';
-import Home from './Pages/Dashboard/Home';
+import Register from "./Pages/Register";
+import TeamDetails from './Pages/TeamDetails';
 
 class App extends React.Component {
   componentDidMount () {
@@ -18,9 +19,10 @@ class App extends React.Component {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/dashboard" element={<Home />} />
+        <Route path="/profile" exact element={<Profile />} />
+        <Route path="/register" exact element={<Register />} />
+        <Route path="/register/:id" exact elemennt={<TeamDetails />} />
+        <Route path="/" exact element={<Login />} />
       </Routes>
     </div>
   );

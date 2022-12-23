@@ -4,3 +4,5 @@
 
 PROFILE
 1. Making all the fields compulsory
+2. Completing the display of the profile picture
+3. Drop down for gender
