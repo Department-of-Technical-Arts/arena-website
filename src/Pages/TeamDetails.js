@@ -96,6 +96,7 @@ const TeamDetails = () => {
             team: team,
             events: eventsChosen,
             sportsName: sports.name,
+            collegeName: user.collegName,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => alert("Successful registration")).catch(err => console.log(err.message))
     }
