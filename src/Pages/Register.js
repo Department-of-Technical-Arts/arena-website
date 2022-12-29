@@ -1,14 +1,15 @@
 import React from "react";
 import "../Styles/Register.css"
 import { firestore } from "../config";
-import { Button, Alert } from "reactstrap";
+import { Button, Alert, Spinner } from "reactstrap";
 
 class Register extends React.Component {
     constructor () {
         super ()
         this.state = {
             userDetails: {},
-            sports: []
+            sports: [],
+            isLoading: true
         }
     }
     componentDidMount () {
@@ -21,11 +22,12 @@ class Register extends React.Component {
             Snapshot.forEach(document => {
                 temp.push(document.data())
             })
-            this.setState({sports: temp})
+            this.setState({sports: temp, isLoading: false})
         }).catch(err => console.log(err.message))
     }
     render () {
         return (
+            <div> {this.state.isLoading ? <Spinner /> : 
             <div>
                 {this.state.userDetails.isProfileComplete ? null : 
                 <Alert color="warning" >
@@ -43,7 +45,7 @@ class Register extends React.Component {
                                 <div>{eachSport.players} players</div>
                                 <div>$1 million</div>
                             </div>
-                            <Button className="sport-register" color="success">
+                            <Button disabled={!this.state.userDetails.isProfileComplete} className="sport-register" color="success">
                                 <a style={{textDecoration:"none", color:"white"}} href={`/register/${eachSport.name.toLowerCase()}`}>
                                     REGISTER
                                 </a>
@@ -52,6 +54,8 @@ class Register extends React.Component {
                     )
                 })}
                 </div>
+            </div>
+            }
             </div>
         )
     }

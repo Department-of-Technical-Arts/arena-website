@@ -6,6 +6,7 @@ import Login from './Pages/Login';
 import Profile from './Pages/Profile';
 import Register from "./Pages/Register";
 import TeamDetails from './Pages/TeamDetails';
+import EditTeam from './Pages/EditTeam'
 
 class App extends React.Component {
   componentDidMount () {
@@ -22,6 +23,7 @@ class App extends React.Component {
         <Route path="/profile" exact element={<Profile />} />
         <Route path="/register" exact element={<Register />} />
         <Route path="/register/:id" exact element={<TeamDetails />} />
+        <Route path="/edit-team" exact element={<EditTeam />} />
         <Route path="/" exact element={<Login />} />
       </Routes>
     </div>
