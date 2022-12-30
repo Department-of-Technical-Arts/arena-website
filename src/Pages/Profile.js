@@ -66,11 +66,6 @@ class Profile extends React.Component {
         return (
             <div> {this.state.isLoading ? <Spinner /> : 
             <div>
-                <div className="profile-photo-background">
-                    {this.state.userDetails.photo ? 
-                    <img className="profile-photo" src={this.state.userDetails.photo} alt="profile" />:
-                    <i className="fa fa-user profile-photo"></i>}             
-                </div>
                 <div className="profile-container">
                     <h3>{this.state.userDetails.name}</h3>
                     {this.state.userDetails.isProfileComplete ? null : 

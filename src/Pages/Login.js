@@ -1,7 +1,8 @@
 import React from "react"
 import "../Styles/Login.css"
-import { googleRegistration, loginMethod, signinMethod } from "../config"
+import { googleRegistration, loginMethod, signinMethod, resetPassword } from "../config"
 import LoginImage from "../Assets/sports.png"
+import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Label, Button} from "reactstrap"
 
 class Login extends React.Component {
     constructor () {
@@ -11,7 +12,8 @@ class Login extends React.Component {
             password: "",
             name: "",
             confirmPassword: "",
-            currentPage: "login"
+            currentPage: "login",
+            isModalOpen: false
         }
     }
     render () {
@@ -39,8 +41,8 @@ class Login extends React.Component {
                     <div style={{display:"flex", flexDirection:"column", justifyContent: "center"}}>
                         <input name="email" onChange={onChange} placeholder="Your Email Address" value={this.state.email} />
                         <input name="password" type="password" onChange={onChange} placeholder="Password" value={this.state.password} />
-                        <div style={{marginTop:"10px"}}>
-                            Forgot Password?
+                        <div style={{marginTop:"10px", display:"flex", justifyContent:"center"}}>
+                            <div onClick={() => this.setState ({isModalOpen: true})} style={{cursor:"pointer"}}>Forgot Password?</div>
                             <button style={{marginLeft: "100px"}} onClick={() => loginMethod(this.state.email, this.state.password)}>Login</button>
                         </div>
                         OR <br />
@@ -67,11 +69,25 @@ class Login extends React.Component {
                     <button className="google-login-button" onClick={googleRegistration}>
                      <i className="fa fa-google"></i> GOOGLE
                     </button>
-                    <div onClick={changePage}>
-                        Already have an Account? Login
+                    <div>
+                        Already have an Account? <span onClick={changePage} style={{cursor:"pointer"}}> Login </span>
                     </div>
                 </div>
                 }
+                <Modal isOpen={this.state.isModalOpen} toggle={() => {this.setState({isModalOpen: !this.state.isModalOpen})}} >
+                    <ModalHeader style={{color:"black"}} toggle={() => this.setState({isModalOpen: false})}>
+                        FORGOT PASSWORD
+                    </ModalHeader>
+                    <ModalBody>
+                        <Label style={{color:"black", marginLeft:"5px"}}>ENTER YOUR EMAIL ID</Label>
+                        <Input onChange={onChange} name="email" value={this.state.email} />
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button onClick={() => resetPassword(this.state.email)} color="success" >
+                            SUBMIT
+                        </Button>
+                    </ModalFooter>
+                </Modal>
             </div>
         )
     }

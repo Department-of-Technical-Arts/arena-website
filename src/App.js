@@ -7,6 +7,7 @@ import Profile from './Pages/Profile';
 import Register from "./Pages/Register";
 import TeamDetails from './Pages/TeamDetails';
 import EditTeam from './Pages/EditTeam'
+import Toolbar from './Components/Toolbar';
 
 class App extends React.Component {
   componentDidMount () {
@@ -19,6 +20,7 @@ class App extends React.Component {
   render () {
   return (
     <div className="App">
+      <Toolbar />
       <Routes>
         <Route path="/profile" exact element={<Profile />} />
         <Route path="/register" exact element={<Register />} />

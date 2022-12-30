@@ -1,3 +1,1 @@
-1. Forget Password Implementation
-2. Email Validation in normal sign up
-3. Duplicate emails using two different sign in methods
+1. Email Validation in normal sign up

@@ -65,5 +65,10 @@ export const signinMethod = (name, email, password) => firebase.auth().createUse
     }
 }).catch(err => {console.log(err.message)})
 
+export const resetPassword = (email) => firebase.auth().sendPasswordResetEmail(email).then(() => {
+    window.location.reload()
+}).catch(err => console.log(err.message))
+
+export const emailVerify = (email) => firebase.auth().code
 
 export default firebase
