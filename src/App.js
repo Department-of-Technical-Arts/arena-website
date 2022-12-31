@@ -26,7 +26,7 @@ class App extends React.Component {
         <Route path="/register" exact element={<Register />} />
         <Route path="/register/:id" exact element={<TeamDetails />} />
         <Route path="/edit-team" exact element={<EditTeam />} />
-        <Route path="/" exact element={<Login />} />
+        <Route path="/login" exact element={<Login />} />
       </Routes>
     </div>
   );

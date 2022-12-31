@@ -32,17 +32,20 @@ export const googleRegistration = () => firebase.auth().signInWithPopup(provider
         }).then (() => {
             localStorage.setItem("uid", uid)
             alert("Success Login")
+            window.location.reload()
         }).catch(err => alert(err.message))
     }
     else {
         localStorage.setItem("uid", uid)
         alert("Success Login")
+        window.location.reload()
     }
 }).catch((err) => console.log(err.message))
 
 export const loginMethod = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password).then((result) => {
     localStorage.setItem("uid", result.user.uid)
     alert("Success Login")
+    window.location.reload()
 }).catch(err => {console.log(err.message)})
 
 export const signinMethod = (name, email, password) => firebase.auth().createUserWithEmailAndPassword(email, password).then((result) => {
@@ -57,11 +60,13 @@ export const signinMethod = (name, email, password) => firebase.auth().createUse
         }).then (() => {
             localStorage.setItem("uid", result.user.uid)
             alert("Success Login")
+            window.location.reload()
         }).catch(err => alert(err.message))
     }
     else {
         localStorage.setItem("uid", result.user.uid)
         alert("Success Login")
+        window.location.reload()
     }
 }).catch(err => {console.log(err.message)})
 
