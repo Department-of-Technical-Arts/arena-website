@@ -13,13 +13,17 @@ class EditTeam extends React.Component {
             email: "",
             index: 0,
             isLoading: true,
-            isModalOpen: false
+            isModalOpen: false,
+            isEditTeam: true
         }
     }
     componentDidMount () {
         const number = localStorage.getItem("uid")
         firestore.collection("registration").doc(number).get().then(document => {
+            if (document.exists)
             this.setState ({registration: document.data()}, () => this.setState({team: this.state.registration.team, isLoading: false}))
+            else 
+            this.setState ({isEditTeam: false, isLoading: false})
         }).catch(err => console.log(err.message))
     }
     render () {
@@ -60,6 +64,7 @@ class EditTeam extends React.Component {
             {this.state.isLoading ? <Spinner /> : 
             <div style={{marginLeft:"1.5rem", marginTop:"1.5rem", marginRight:"1.5rem"}}>
                 <h3>EDIT TEAM MEMBERS</h3>
+                {this.state.isEditTeam ? <div>
                 <h4>SPORTS: {this.state.registration.sportsName.toUpperCase()}</h4>
                 <div>
                     {this.state.registration.team.map((eachMember, index) => {
@@ -76,7 +81,7 @@ class EditTeam extends React.Component {
                             </div>
                         )
                     })}
-                </div>
+                </div></div> : <div>Please register in a sport to edit team</div>}
                 <Modal isOpen={this.state.isModalOpen} toggle={() => {this.setState({isModalOpen: !this.state.isModalOpen})}} >
                     <ModalHeader style={{color:"black"}} toggle={() => this.setState({isModalOpen: false})}>
                         EDIT DETAILS

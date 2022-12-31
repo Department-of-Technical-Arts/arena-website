@@ -13,7 +13,6 @@ import {
 const Toolbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isUser, setUser] = useState(false);
-  const [isEditTeam, setEditTeam] = useState (false)
 
   const toggle = () => setIsOpen(!isOpen);
   useEffect (() => {
@@ -23,11 +22,6 @@ const Toolbar = () => {
     }
     else 
       setUser (false)
-    if (isUser) {
-    firestore.collection("registration").doc(number).get().then(document => {
-      setEditTeam(document.exists)
-    }).catch(err => console.log(err.message))
-    }
   }, [])
 
   const signOut = () => {
@@ -48,12 +42,11 @@ const Toolbar = () => {
               <NavLink href="/register">Register</NavLink>
             </NavItem>
           </Nav>
-          {isEditTeam && 
           <Nav className="me-auto" navbar>
             <NavItem>
               <NavLink href="/edit-team">Edit Team</NavLink>
             </NavItem>
-          </Nav>}
+          </Nav>
           <Nav className="me-auto" navbar>
             <NavItem>
               <NavLink href="/profile">My Profile</NavLink>

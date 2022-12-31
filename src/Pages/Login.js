@@ -2,7 +2,8 @@ import React from "react"
 import "../Styles/Login.css"
 import { googleRegistration, loginMethod, signinMethod, resetPassword } from "../config"
 import LoginImage from "../Assets/sports.png"
-import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Label, Button} from "reactstrap"
+import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Label, Button, Nav} from "reactstrap"
+import { Navigate } from "react-router-dom"
 
 class Login extends React.Component {
     constructor () {
@@ -13,9 +14,16 @@ class Login extends React.Component {
             name: "",
             confirmPassword: "",
             currentPage: "login",
-            isModalOpen: false
+            isModalOpen: false,
+            isLoggedIn: false
         }
     }
+    componentDidMount () {
+        const number = localStorage.getItem("uid")
+        if (number)
+            this.setState ({isLoggedIn: true})
+    }
+
     render () {
         const onChange = (event) => {
             const {value, name} = event.target
@@ -28,6 +36,7 @@ class Login extends React.Component {
                 this.setState({currentPage: "login"})
             this.setState ({name: "", email:"", confirmPassword: "", password: ""})
         }
+        if (this.state.isLoggedIn) return <Navigate to="/register" />
         return (
             <div className="login-container">
                 <div className="login-box">

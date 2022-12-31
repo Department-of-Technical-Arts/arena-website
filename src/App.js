@@ -8,6 +8,7 @@ import Register from "./Pages/Register";
 import TeamDetails from './Pages/TeamDetails';
 import EditTeam from './Pages/EditTeam'
 import Toolbar from './Components/Toolbar';
+import PrivateRoute from './Components/PrivateRoute';
 
 class App extends React.Component {
   componentDidMount () {
@@ -22,10 +23,10 @@ class App extends React.Component {
     <div className="App">
       <Toolbar />
       <Routes>
-        <Route path="/profile" exact element={<Profile />} />
-        <Route path="/register" exact element={<Register />} />
-        <Route path="/register/:id" exact element={<TeamDetails />} />
-        <Route path="/edit-team" exact element={<EditTeam />} />
+        <Route path="/profile" exact element={<PrivateRoute ><Profile /></PrivateRoute> } />
+        <Route path="/register" exact element={<PrivateRoute><Register /></PrivateRoute>} />
+        <Route path="/register/:id" exact element={<PrivateRoute><TeamDetails /></PrivateRoute>} />
+        <Route path="/edit-team" exact element={<PrivateRoute><EditTeam /></PrivateRoute>} />
         <Route path="/login" exact element={<Login />} />
       </Routes>
     </div>
