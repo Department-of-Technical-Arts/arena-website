@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { auth, firestore } from "../config"
+import { auth } from "../config"
 import {
   Collapse,
   Navbar,
