@@ -16,6 +16,7 @@ const TeamDetails = () => {
     const [playerName, setplayerName] = useState ("")
     const [playerNumber, setplayerNumber] = useState("")
     const [team, setTeam] = useState([])
+    const [buttonDisabled, setButtonDisbaled] = useState(false)
 
     useEffect(() => {
         firestore.collection("sports").doc(id).get().then(document => {
@@ -43,6 +44,8 @@ const TeamDetails = () => {
     }
 
     const onChange = (event) => {
+        if (team.length === parseInt(sports.players))
+            setButtonDisbaled(true)
         const {name, value} = event.target
         if (name === "name")
             setName(value)
@@ -81,6 +84,8 @@ const TeamDetails = () => {
         setTeam(temp)
         setplayerName("")
         setplayerNumber("")
+        if (team.length+1 === parseInt(sports.players))
+            setButtonDisbaled(true)
     }
 
     const onRegister = () => {
@@ -141,7 +146,7 @@ const TeamDetails = () => {
                     <Input name="playerName" onChange={onChange} value={playerName} placeholder="Name" />
                     <Input name="playerNumber" onChange={onChange} value={playerNumber} placeholder="Contact Number" />
                 </div>
-                <Button onClick={addTeamMember} style={{margin:"5px"}} color="success">
+                <Button disabled={buttonDisabled} onClick={addTeamMember} style={{margin:"5px"}} color="success">
                     ADD TEAM MEMBER
                 </Button>
             </div>

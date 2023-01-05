@@ -74,6 +74,6 @@ export const resetPassword = (email) => firebase.auth().sendPasswordResetEmail(e
     window.location.reload()
 }).catch(err => console.log(err.message))
 
-export const emailVerify = (email) => firebase.auth().code
+// export const emailVerify = (email) => firebase.auth().code
 
 export default firebase
