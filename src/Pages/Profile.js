@@ -12,12 +12,8 @@ class Profile extends React.Component {
             yearOfStudy: "",
             collegeName: "",
             contactNumber: "",
-            address: "",
             position: "",
             gender: "Male",
-            city: "",
-            state: "",
-            pinCode: "",
             isLoading: true
         }
     }
@@ -25,14 +21,10 @@ class Profile extends React.Component {
         firestore.collection("users").doc(localStorage.getItem("uid")).get().then(document => {
             this.setState ({userDetails: document.data(), isLoading: false})
             if (document.data().contactNumber) {
-                const {contactNumber, pinCode, address, gender, city, state, collegeName, yearOfStudy, position} = document.data()
+                const {contactNumber, gender, collegeName, yearOfStudy, position} = document.data()
                 this.setState ({
                     contactNumber: contactNumber,
-                    pinCode: pinCode,
-                    address: address,
                     gender: gender,
-                    city: city,
-                    state: state,
                     collegeName: collegeName,
                     yearOfStudy: yearOfStudy,
                     position: position,
@@ -50,12 +42,8 @@ class Profile extends React.Component {
             event.preventDefault()
             firestore.collection("users").doc(this.state.userDetails.uid).update ({
                 isProfileComplete: true,
-                address: this.state.address,
-                city: this.state.city,
                 collegeName: this.state.collegeName,
-                pinCode: this.state.pinCode,
                 gender: this.state.gender,
-                state: this.state.state,
                 position: this.state.position,
                 yearOfStudy: this.state.yearOfStudy,
                 contactNumber: this.state.contactNumber,
@@ -84,10 +72,6 @@ class Profile extends React.Component {
                             <option value="Female">Female</option>
                             <option value="Others">Others</option>
                         </Input>
-                        <input required onChange={onChange} name="address" placeholder="College Address" value={this.state.address} className="profile-input" />
-                        <input required onChange={onChange} name="city" placeholder="City" value={this.state.city} className="profile-input" />
-                        <input required onChange={onChange} name="state" placeholder="State" value={this.state.state} className="profile-input" />
-                        <input required onChange={onChange} name="pinCode" placeholder="Pin Code" value={this.state.pinCode} className="profile-input" /><br />
                         </div>
                         <div style={{display:"flex", justifyContent:"center"}}>
                             <Button type="submit" value="submit" color="success" style={{width:"150px"}}>
