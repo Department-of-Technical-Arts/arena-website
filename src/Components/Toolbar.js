@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { auth } from "../config"
+import Logo from '../Assets/phoenixplain.png'
 import {
   Collapse,
   Navbar,
@@ -32,8 +33,8 @@ const Toolbar = () => {
   }
   return (
     <div>
-      <Navbar color='light' full light>
-        <NavbarBrand href="/">ARENA</NavbarBrand>
+      <Navbar style={{position:"fixed", width:"100vw", zIndex:"100", backgroundColor:"rgba(190,60,55,0.4)", backdropFilter:"blur(10px)"}} full light>
+        <NavbarBrand href="/"><img src={Logo} style={{objectFit:"cover", height:"6rem"}}/></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         {isUser ?
         <Collapse isOpen={isOpen} navbar>

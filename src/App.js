@@ -9,7 +9,7 @@ import TeamDetails from './Pages/TeamDetails';
 import EditTeam from './Pages/EditTeam'
 import Toolbar from './Components/Toolbar';
 import PrivateRoute from './Components/PrivateRoute';
-import Gallery from './Pages/Gallery';
+import Home from './Pages/Home/Home';
 
 class App extends React.Component {
   componentDidMount () {
@@ -24,12 +24,13 @@ class App extends React.Component {
     <div className="App">
       <Toolbar />
       <Routes>
+        <Route path="/" exact element={<Home/>} />
         <Route path="/profile" exact element={<PrivateRoute ><Profile /></PrivateRoute> } />
         <Route path="/register" exact element={<PrivateRoute><Register /></PrivateRoute>} />
         <Route path="/register/:id" exact element={<PrivateRoute><TeamDetails /></PrivateRoute>} />
         <Route path="/edit-team" exact element={<PrivateRoute><EditTeam /></PrivateRoute>} />
         <Route path="/login" exact element={<Login />} />
-        <Route path="/gallery" exact element={<Gallery />} />
+        {/* <Route path="/gallery" exact element={<Gallery />} /> */}
       </Routes>
     </div>
   );
