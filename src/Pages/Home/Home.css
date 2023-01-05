@@ -102,6 +102,14 @@
     justify-content: space-around;
     margin-top: 10vh;
     margin-bottom: 10vh;
+    
+}
+.movie{
+    transform: scale(1);
+    transition: transform 0.5s;
+}
+.movie:hover{
+    transform: scale(1.2);
 }
 .movie iframe{
     height: 30vh;
