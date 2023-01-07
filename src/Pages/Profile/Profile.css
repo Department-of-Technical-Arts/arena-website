@@ -12,14 +12,15 @@
 }
 
 .profile-container {
-    margin: 1rem 3rem 0rem 15rem;
-
+    width: 80vw;
+    margin-left:10vw
 }
 
 .profile-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
 .profile-input {

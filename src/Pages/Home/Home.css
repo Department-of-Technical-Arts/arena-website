@@ -110,6 +110,7 @@
 }
 .movie:hover{
     transform: scale(1.2);
+    z-index: 10;
 }
 .movie iframe{
     height: 30vh;
@@ -143,4 +144,22 @@
 .links p:focus p:hover p:active{
     text-decoration: none !important;
     color: white;
+}
+
+@media (max-width: 1024px) {
+    .landing-footer{
+        flex-direction: column;
+    }
+    .movies{
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 10vh;
+    }
+    .movie iframe{
+        height: 30vh;
+        width: 80vw;
+    }
+    .movie h3{
+        text-shadow: 0px 10px 10px rgba(190,60,55,0.8);
+    }
 }

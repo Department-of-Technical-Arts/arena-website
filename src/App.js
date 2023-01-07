@@ -1,15 +1,15 @@
-import React from "react";
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import { auth } from "./config";
-import Login from "./Pages/Login";
-import Profile from "./Pages/Profile";
-import Register from "./Pages/Register";
-import TeamDetails from "./Pages/TeamDetails";
-import EditTeam from "./Pages/EditTeam";
-import Toolbar from "./Components/Toolbar";
-import PrivateRoute from "./Components/PrivateRoute";
-import Home from "./Pages/Home/Home";
+import React from 'react';
+import './App.css';
+import { Routes, Route } from "react-router-dom"
+import { auth } from "./config"
+import Login from './Pages/Login';
+import Profile from './Pages/Profile/Profile';
+import Register from "./Pages/Register/Register";
+import TeamDetails from './Pages/TeamDetails/TeamDetails';
+import EditTeam from './Pages/EditTeam'
+import Toolbar from './Components/Toolbar';
+import PrivateRoute from './Components/PrivateRoute';
+import Home from './Pages/Home/Home';
 import Gallery from "./Pages/Gallery/Gallery";
 
 class App extends React.Component {

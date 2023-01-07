@@ -60,7 +60,7 @@ class EditTeam extends React.Component {
             }).then(() => {window.location.reload()}).catch(err => console.log(err.message))
         }
         return (
-            <div>
+            <div className="main-page">
             {this.state.isLoading ? <Spinner /> : 
             <div style={{marginLeft:"1.5rem", marginTop:"1.5rem", marginRight:"1.5rem"}}>
                 <h3>EDIT TEAM MEMBERS</h3>

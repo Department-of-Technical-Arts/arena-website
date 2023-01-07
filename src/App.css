@@ -1,0 +1,12 @@
+.main-page{
+    position: absolute;
+    overflow: scroll;
+    width: 100vw;
+    height: 90vh;
+    top:6rem;
+    background-image: url("./Pages/Home/bg-3.jpg");
+    background-size: scale-down;
+    background-repeat: no-repeat;
+    background-position:center;
+    background-attachment: fixed;
+}
