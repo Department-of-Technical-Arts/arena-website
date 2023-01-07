@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
+.content-gallery {
+  position: fixed;
+  justify-content: center;
+}
+
+.gallery-title {
+  position: fixed;
+  font-family: "Inter";
+  padding-top: 10%;
+  padding-left: 27%;
+  font-style: normal;
+  font-size: 9.8vw;
+  font-weight: 600;
+  color: #e9e9dd;
+  z-index: 3;
+}
+
+@media screen and (max-width: 500px) {
+  .gallery-title {
+    padding-top: 20%;
+  }
+  .container-grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 0.55%;
+    padding: 0%;
+    padding-top: 20vh;
+  }
+  .w-1,
+  .w-2,
+  .w-3,
+  .w-4,
+  .w-5,
+  .w-6 {
+    grid-column: span 1;
+  }
+}
+@media screen and (min-width: 501px) and (max-width: 1000px) {
+  .gallery-title {
+    padding-top: 20%;
+  }
+  .container-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .w-1,
+  .w-2,
+  .w-3,
+  .w-4,
+  .w-5,
+  .w-6 {
+    grid-column: span 3;
+  }
+}
+
+.container-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 2%;
+  grid-auto-rows: auto;
+  grid-auto-flow: dense;
+  padding-top: 50vh;
+  padding-left: 10vh;
+  padding-right: 10vh;
+}
+
+.gallery-item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.gallery-item .image-gallery-grid {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gallery-item .image-gallery-grid img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  cursor: pointer;
+}
+
+.gallery-item:hover .image-gallery-grid {
+  transform: scale(1.1);
+  transition: 0.5s ease-in-out;
+}
+
+.w-1 {
+  grid-column: span 1;
+}
+.w-2 {
+  grid-column: span 2;
+}
+.w-3 {
+  grid-column: span 3;
+}
+.w-4 {
+  grid-column: span 4;
+}
+.w-5 {
+  grid-column: span 5;
+}
+.w-6 {
+  grid-column: span 6;
+}
+
+.h-1 {
+  grid-row: span 1;
+}
+.h-2 {
+  grid-row: span 2;
+}
+.h-3 {
+  grid-row: span 3;
+}
+.h-4 {
+  grid-row: span 4;
+}
+.h-5 {
+  grid-row: span 5;
+}
+.h-6 {
+  grid-row: span 6;
+}
