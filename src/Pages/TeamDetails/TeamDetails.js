@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Alert, Button, Input } from "reactstrap";
-import { firestore } from "../../config";
-import firebase from "../../config";
-import './TeamDetails.css'
+import { Button, Input } from "reactstrap";
+import { firestore } from "../config";
+import firebase from "../config";
+
 const TeamDetails = () => {
     const {id} = useParams()
     const [sports, setSports] = useState ({})
@@ -17,10 +17,16 @@ const TeamDetails = () => {
     const [playerNumber, setplayerNumber] = useState("")
     const [team, setTeam] = useState([])
     const [buttonDisabled, setButtonDisbaled] = useState(false)
-    const [showSuccess, setSuccess] = useState(false)
+    const [eventArray, setEventArray] = useState ([])
+
     useEffect(() => {
         firestore.collection("sports").doc(id).get().then(document => {
             setSports(document.data())
+            let temp = []
+            for (var i=0;i<document.data().numberOfEvents; i++) {
+                temp[i] = i+1
+            }
+            setEventArray(temp)
         }).catch (err => console.log(err.message))
         const number = localStorage.getItem("uid")
         firestore.collection("users").doc(number).get().then(document => {
@@ -29,7 +35,6 @@ const TeamDetails = () => {
     }, [id])
 
     const onChangeBox = (event) => {
-        setSuccess(false)
         if (event.target.checked) {
             setName(user.name)
             setEmail(user.email)
@@ -45,7 +50,6 @@ const TeamDetails = () => {
     }
 
     const onChange = (event) => {
-        setSuccess(false)
         if (team.length === parseInt(sports.players))
             setButtonDisbaled(true)
         const {name, value} = event.target
@@ -86,7 +90,7 @@ const TeamDetails = () => {
         setTeam(temp)
         setplayerName("")
         setplayerNumber("")
-        if (team.length+1 === parseInt(sports.players))
+        if (team.length + 1 === parseInt(sports.players))
             setButtonDisbaled(true)
     }
 
@@ -105,59 +109,56 @@ const TeamDetails = () => {
             sportsName: sports.name,
             collegeName: user.collegeName,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
-        }).then(() => setSuccess(true)).catch(err => console.log(err.message))
+        }).then(() => alert("Successful registration")).catch(err => console.log(err.message))
     }
 
     return (
-        <div className="main-page">
-            <div className="team-details">
-                <h3>{id.toUpperCase()}</h3>
-                <div className="captain-detail">
-                    <h5>CAPTAIN DETAILS</h5>
-                    <Input onChange={onChangeBox} type="checkbox" /> I am the captain.
-                    <div className="captain-inputs">
-                        <Input disabled={disabled} name="name" onChange={onChange} value={name} placeholder="Name" />
-                        <Input disabled={disabled} name="email" onChange={onChange} value={email} placeholder="Email" />
-                        <Input disabled={disabled} name="contactNumber" onChange={onChange} value={contactNumber} placeholder="Contact Number" />
-                    </div>
+        <div style={{marginLeft:"1.5rem", marginTop:"1.5rem", marginRight:"1.5rem"}}>
+            <h3>{id.toUpperCase()}</h3>
+            <div style={{marginTop:"20px"}}>
+                <h5>CAPTAIN DETAILS</h5>
+                <Input onChange={onChangeBox} type="checkbox" /> I am the captain.
+                <div style={{display:"flex"}}>
+                    <Input disabled={disabled} name="name" onChange={onChange} value={name} placeholder="Name" />
+                    <Input disabled={disabled} name="email" onChange={onChange} value={email} placeholder="Email" />
+                    <Input disabled={disabled} name="contactNumber" onChange={onChange} value={contactNumber} placeholder="Contact Number" />
                 </div>
-                <div className="event-detail" >
-                    <h5>EVENT DETAILS</h5>
-                    <div className="event-inputs" >
-                        {[1,2,3].map(eachIndex => {
-                            return (
-                                <Input name={`eventName${eachIndex}`} onChange={onChange} style={{margin:"10px"}} key={eachIndex} type="select">
-                                    <option value="">
-                                        Select Event {eachIndex}
-                                    </option>
-                                    {sports.events && sports.events.map(eachEvent => {
-                                        return (
-                                            <option key={eachEvent} value={eachEvent} >
-                                                {eachEvent}
-                                            </option>
-                                        )
-                                    })}
-                                </Input>
-                            )
-                        })}
-                    </div>
-                </div>
-                <div className="team-detail" style={{marginTop:"20px"}}>
-                    <h5>TEAM MEMBER DETAILS</h5>
-                    <div><b>NOTE: </b>The captain is already added to the team.</div>
-                    <div className="team-inputs" style={{display:"flex"}}>
-                        <Input name="playerName" onChange={onChange} value={playerName} placeholder="Name" />
-                        <Input name="playerNumber" onChange={onChange} value={playerNumber} placeholder="Contact Number" />
-                    </div>
-                    <Button disabled={buttonDisabled} onClick={addTeamMember} color="success">
-                        ADD TEAM MEMBER
-                    </Button>
-                </div>
-                <Button onClick={onRegister} color="success">
-                    SUBMIT
-                </Button>
-                {showSuccess&&<Alert color="success">Registration Succesfully Completed</Alert>}
             </div>
+            <div style={{marginTop:"20px"}}>
+                <h5>EVENT DETAILS</h5>
+                <div style={{display:"flex"}}>
+                    {eventArray.map(eachIndex => {
+                        return (
+                            <Input name={`eventName${eachIndex}`} onChange={onChange} style={{margin:"10px"}} key={eachIndex} type="select">
+                                <option value="">
+                                    Select Event {eachIndex}
+                                </option>
+                                {sports.events && sports.events.map(eachEvent => {
+                                    return (
+                                        <option key={eachEvent} value={eachEvent} >
+                                            {eachEvent}
+                                        </option>
+                                    )
+                                })}
+                            </Input>
+                        )
+                    })}
+                </div>
+            </div>
+            <div style={{marginTop:"20px"}}>
+                <h5>TEAM MEMBER DETAILS</h5>
+                <div><b>NOTE: </b>The captain is already added to the team.</div>
+                <div style={{display:"flex"}}>
+                    <Input name="playerName" onChange={onChange} value={playerName} placeholder="Name" />
+                    <Input name="playerNumber" onChange={onChange} value={playerNumber} placeholder="Contact Number" />
+                </div>
+                <Button disabled={buttonDisabled} onClick={addTeamMember} style={{margin:"5px"}} color="success">
+                    ADD TEAM MEMBER
+                </Button>
+            </div>
+            <Button onClick={onRegister} color="success">
+                SUBMIT
+            </Button>
         </div>
     )
 }
