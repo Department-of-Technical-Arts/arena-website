@@ -145,8 +145,34 @@
     text-decoration: none !important;
     color: white;
 }
-
+@media (max-width: 800px) {
+    .scroll-div{
+        font-size: 3.5vw;
+    }
+    .title{
+        font-size: 15vw;
+        text-align: center;
+    }
+    .sub-heading{
+        transform: translate(-50%,50%);
+        font-size: 7vw;
+        text-align: center;
+    }
+    .about-head{
+        font-size: 10vw;
+    }
+    .about-desc{
+        font-size: 3.5vw;
+    }
+}
 @media (max-width: 1024px) {
+    .about-head{
+        font-size: 10vw;
+       
+    }
+    .about-desc{
+        font-size: 2.5vw;
+    }
     .landing-footer{
         flex-direction: column;
     }

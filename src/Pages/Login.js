@@ -39,11 +39,6 @@ class Login extends React.Component {
         if (this.state.isLoggedIn) return <Navigate to="/register" />
         return (
             <div className="login-container main-page">
-                <div className="login-box">
-                    <h1>ARENA</h1>
-                    <h3>PLAY HARD. PLAY STRONG</h3>
-                    <img src={LoginImage} alt="login" />
-                </div>
                 {this.state.currentPage === "login" &&
                 <div className="login-box">
                     <h2>Login</h2>
