@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Button, Input } from "reactstrap";
-import { firestore } from "../config";
-import firebase from "../config";
+import { firestore } from "../../config";
+import firebase from "../../config";
 
 const TeamDetails = () => {
     const {id} = useParams()
