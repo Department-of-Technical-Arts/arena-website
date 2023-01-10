@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollContainer, ScrollPage, Animator, batch, Fade, FadeIn, FadeOut, Move, MoveIn, MoveOut, Sticky, StickyIn, StickyOut, Zoom, ZoomIn, ZoomOut } from 'react-scroll-motion';
+import { ScrollContainer, ScrollPage, Animator, batch, Fade, FadeIn, MoveOut, Sticky, StickyIn } from 'react-scroll-motion';
 import './Home.css'
 import video from './BG.mp4'
 import bg1 from './bg-1.jpg'
@@ -25,7 +25,7 @@ const Home = () => {
                 </ScrollPage>
                 <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky())}>
-                        <img className='bg-image-1' src={bg1}/>
+                        <img alt="arena" className='bg-image-1' src={bg1}/>
                     </Animator>
                     <Animator animation={batch(Fade(), Sticky(), MoveOut())}>
                         <div className='second-page'>
@@ -37,8 +37,8 @@ const Home = () => {
                 </ScrollPage>
                 <ScrollPage>
                     <Animator animation={batch(FadeIn(), StickyIn(), MoveOut())}>
-                        <img className='bg-image-1 blur' src={bg2}/>
-                        <img className='bits' src={bits}/>
+                        <img alt="arena" className='bg-image-1 blur' src={bg2}/>
+                        <img alt="arena" className='bits' src={bits}/>
                     </Animator>
                     <Animator animation={batch(Fade(), StickyIn(), MoveOut())}>
                         <div className='about-head'>About Us</div>
@@ -86,8 +86,8 @@ const Home = () => {
             </div>
         </div>
         <div className='landing-footer'>
-            <img className='footer-bits' src={bits}></img>
-            <img className='footer-bits' src={logo}></img>
+            <img alt="arena" className='footer-bits' src={bits}></img>
+            <img alt="arena" className='footer-bits' src={logo}></img>
             <div className='links'>
                 <h3>Follow Us</h3>
                 <p></p>

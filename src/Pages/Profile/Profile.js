@@ -53,7 +53,7 @@ class Profile extends React.Component {
                 this.setState({yearErr:false})
             }
             //Phone Validity
-            if(this.state.contactNumber.trim().length==10){
+            if(this.state.contactNumber.trim().length===10){
                 this.setState({phoneErr:false})
             }else{
                 this.setState({phoneErr:true, stringErr:true})
@@ -61,13 +61,13 @@ class Profile extends React.Component {
             }
 
             //Position Validity
-            if(this.state.position.trim()==""){
+            if(this.state.position.trim()===""){
                 this.setState({stringErr:true})
                 return false
             }
 
             //College Validity
-            if(this.state.collegeName.trim()==""){
+            if(this.state.collegeName.trim()===""){
                 this.setState({stringErr:true})
                 return false
             }

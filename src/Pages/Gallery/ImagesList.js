@@ -1,4 +1,4 @@
-export default [
+export const imageList = [
   "./galleryimgs/1.jpg",
   "./galleryimgs/2.jpg",
   "./galleryimgs/3.jpg",
@@ -37,3 +37,5 @@ export default [
   "./galleryimgs/36.jpg",
   "./galleryimgs/37.jpg",
 ];
+
+export default imageList

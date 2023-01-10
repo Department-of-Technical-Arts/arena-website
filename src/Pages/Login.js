@@ -1,7 +1,6 @@
 import React from "react"
 import "../Styles/Login.css"
 import { googleRegistration, loginMethod, signinMethod, resetPassword } from "../config"
-import LoginImage from "../Assets/sports.png"
 import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Label, Button} from "reactstrap"
 import { Navigate } from "react-router-dom"
 
