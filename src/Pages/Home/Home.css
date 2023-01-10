@@ -145,26 +145,7 @@
     text-decoration: none !important;
     color: white;
 }
-@media (max-width: 800px) {
-    .scroll-div{
-        font-size: 3.5vw;
-    }
-    .title{
-        font-size: 15vw;
-        text-align: center;
-    }
-    .sub-heading{
-        transform: translate(-50%,50%);
-        font-size: 7vw;
-        text-align: center;
-    }
-    .about-head{
-        font-size: 10vw;
-    }
-    .about-desc{
-        font-size: 3.5vw;
-    }
-}
+
 @media (max-width: 1024px) {
     .about-head{
         font-size: 10vw;
@@ -187,5 +168,25 @@
     }
     .movie h3{
         text-shadow: 0px 10px 10px rgba(190,60,55,0.8);
+    }
+}
+@media (max-width: 800px) {
+    .scroll-div{
+        font-size: 3.5vw;
+    }
+    .title{
+        font-size: 15vw;
+        text-align: center;
+    }
+    .sub-heading{
+        transform: translate(-50%,50%);
+        font-size: 7vw;
+        text-align: center;
+    }
+    .about-head{
+        font-size: 10vw;
+    }
+    .about-desc{
+        font-size: 3vw;
     }
 }

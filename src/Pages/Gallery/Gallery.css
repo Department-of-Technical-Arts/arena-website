@@ -8,6 +8,7 @@
 .content-gallery {
   position: fixed;
   justify-content: center;
+  z-index: 100;
 }
 
 .gallery-title {
@@ -19,7 +20,7 @@
   font-size: 9.8vw;
   font-weight: 600;
   color: #e9e9dd;
-  z-index: 3;
+  z-index: 100;
 }
 
 @media screen and (max-width: 500px) {

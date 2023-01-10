@@ -58,6 +58,11 @@ const Toolbar = () => {
           </Nav>
           <Nav className="me-auto" navbar>
             <NavItem>
+              <NavLink href="/gallery">Gallery</NavLink>
+            </NavItem>
+          </Nav>
+          <Nav className="me-auto" navbar>
+            <NavItem>
               <NavLink onClick={signOut} href="/login">Sign Out</NavLink>
             </NavItem>
           </Nav>
@@ -66,6 +71,11 @@ const Toolbar = () => {
           <Nav className="me-auto" navbar>
             <NavItem>
               <NavLink href="/login">Login / Register</NavLink>
+            </NavItem>
+          </Nav>
+          <Nav className="me-auto" navbar>
+            <NavItem>
+              <NavLink href="/gallery">Gallery</NavLink>
             </NavItem>
           </Nav>
         </Collapse>}
