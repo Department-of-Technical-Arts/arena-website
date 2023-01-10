@@ -37,7 +37,7 @@ const Toolbar = () => {
         <NavbarBrand href="/"><img alt="arena" src={Logo} style={{objectFit:"cover", height:"6vh"}}/></NavbarBrand>
         <NavbarToggler onClick={toggle} className="nav-bar-button">
         <span style={{filter:"invert(100%)"}} class="navbar-toggler-icon"></span>
-          { (isUser) || (!isOpen) ?<div style={{position:"absolute", padding:"0.5rem", top:"3rem",transform:"translate(-80%, 100%)", height:"max-content", width:"max-content", backgroundColor:"yellow", borderRadius:"0.5rem"}}>REGISTER HERE</div>:null}
+          { isUser||isOpen ? null: <div style={{position:"absolute", padding:"0.5rem", top:"3rem",transform:"translate(-80%, 100%)", height:"max-content", width:"max-content", backgroundColor:"yellow", borderRadius:"0.5rem"}}>REGISTER HERE</div>}
         </NavbarToggler>
         {isUser ?
         <Collapse isOpen={isOpen} navbar>

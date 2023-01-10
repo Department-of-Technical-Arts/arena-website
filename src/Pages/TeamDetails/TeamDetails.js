@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Button, Input } from "reactstrap";
 import { firestore } from "../../config";
 import firebase from "../../config";
-
+import './TeamDetails.css'
 const TeamDetails = () => {
     const {id} = useParams()
     const [sports, setSports] = useState ({})
@@ -157,13 +157,11 @@ const TeamDetails = () => {
                         ADD TEAM MEMBER
                     </Button>
                 </div>
-                <Button onClick={onRegister} color="success">
+                <Button style={{width:"max-content"}}onClick={onRegister} color="success">
                     SUBMIT
                 </Button>
             </div>
-            <Button onClick={onRegister} color="success">
-                SUBMIT
-            </Button>
+            
         </div>
     )
 }
