@@ -1,6 +1,6 @@
 import React from "react";
 import "../Styles/Register.css"
-import { firestore } from "../config";
+import { firestore } from "../../config";
 import { Button, Alert, Spinner } from "reactstrap";
 
 class Register extends React.Component {
