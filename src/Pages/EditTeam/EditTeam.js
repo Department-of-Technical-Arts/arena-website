@@ -1,7 +1,7 @@
 import React from "react";
-import { firestore } from "../config";
+import { firestore } from "../../config";
 import { Button, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader, Spinner } from "reactstrap";
-
+import './EditTeam.css'
 class EditTeam extends React.Component {
     constructor () {
         super ()
@@ -62,7 +62,7 @@ class EditTeam extends React.Component {
         return (
             <div className="main-page">
             {this.state.isLoading ? <Spinner /> : 
-            <div style={{marginLeft:"1.5rem", marginTop:"1.5rem", marginRight:"1.5rem"}}>
+            <div className="edit-team-details" >
                 <h3>EDIT TEAM MEMBERS</h3>
                 {this.state.isEditTeam ? <div>
                 <h4>SPORTS: {this.state.registration.sportsName.toUpperCase()}</h4>
@@ -71,7 +71,7 @@ class EditTeam extends React.Component {
                         return (
                             <div key={index}>
                                 <h3>MEMBER {index+1}</h3>
-                                <div style={{display:"flex"}}>
+                                <div className="member-details" >
                                     <Input style={{width:"250px"}} value={eachMember.name} />
                                     <Input style={{width:"250px"}} value={eachMember.contactNumber} />
                                     <Button onClick={() => modalOpen(eachMember, index)} style={{width:"max-content"}} color="success" >

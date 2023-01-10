@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Button, Input } from "reactstrap";
-import { firestore } from "../config";
-import firebase from "../config";
+import { firestore } from "../../config";
+import firebase from "../../config";
 
 const TeamDetails = () => {
     const {id} = useParams()
@@ -113,47 +113,52 @@ const TeamDetails = () => {
     }
 
     return (
-        <div style={{marginLeft:"1.5rem", marginTop:"1.5rem", marginRight:"1.5rem"}}>
-            <h3>{id.toUpperCase()}</h3>
-            <div style={{marginTop:"20px"}}>
-                <h5>CAPTAIN DETAILS</h5>
-                <Input onChange={onChangeBox} type="checkbox" /> I am the captain.
-                <div style={{display:"flex"}}>
-                    <Input disabled={disabled} name="name" onChange={onChange} value={name} placeholder="Name" />
-                    <Input disabled={disabled} name="email" onChange={onChange} value={email} placeholder="Email" />
-                    <Input disabled={disabled} name="contactNumber" onChange={onChange} value={contactNumber} placeholder="Contact Number" />
+        <div className="main-page">
+            <div className="team-details">
+                <h3>{id.toUpperCase()}</h3>
+                <div className="captain-detail">
+                    <h5>CAPTAIN DETAILS</h5>
+                    <Input onChange={onChangeBox} type="checkbox" /> I am the captain.
+                    <div className="captain-inputs">
+                        <Input disabled={disabled} name="name" onChange={onChange} value={name} placeholder="Name" />
+                        <Input disabled={disabled} name="email" onChange={onChange} value={email} placeholder="Email" />
+                        <Input disabled={disabled} name="contactNumber" onChange={onChange} value={contactNumber} placeholder="Contact Number" />
+                    </div>
                 </div>
-            </div>
-            <div style={{marginTop:"20px"}}>
-                <h5>EVENT DETAILS</h5>
-                <div style={{display:"flex"}}>
-                    {eventArray.map(eachIndex => {
-                        return (
-                            <Input name={`eventName${eachIndex}`} onChange={onChange} style={{margin:"10px"}} key={eachIndex} type="select">
-                                <option value="">
-                                    Select Event {eachIndex}
-                                </option>
-                                {sports.events && sports.events.map(eachEvent => {
-                                    return (
-                                        <option key={eachEvent} value={eachEvent} >
-                                            {eachEvent}
-                                        </option>
-                                    )
-                                })}
-                            </Input>
-                        )
-                    })}
+                <div className="event-detail" >
+                    <h5>EVENT DETAILS</h5>
+                    <div className="event-inputs" >
+                        {eventArray.map(eachIndex => {
+                            return (
+                                <Input name={`eventName${eachIndex}`} onChange={onChange} style={{margin:"10px"}} key={eachIndex} type="select">
+                                    <option value="">
+                                        Select Event {eachIndex}
+                                    </option>
+                                    {sports.events && sports.events.map(eachEvent => {
+                                        return (
+                                            <option key={eachEvent} value={eachEvent} >
+                                                {eachEvent}
+                                            </option>
+                                        )
+                                    })}
+                                </Input>
+                            )
+                        })}
+                    </div>
                 </div>
-            </div>
-            <div style={{marginTop:"20px"}}>
-                <h5>TEAM MEMBER DETAILS</h5>
-                <div><b>NOTE: </b>The captain is already added to the team.</div>
-                <div style={{display:"flex"}}>
-                    <Input name="playerName" onChange={onChange} value={playerName} placeholder="Name" />
-                    <Input name="playerNumber" onChange={onChange} value={playerNumber} placeholder="Contact Number" />
+                <div className="team-detail" style={{marginTop:"20px"}}>
+                    <h5>TEAM MEMBER DETAILS</h5>
+                    <div><b>NOTE: </b>The captain is already added to the team.</div>
+                    <div className="team-inputs" style={{display:"flex"}}>
+                        <Input name="playerName" onChange={onChange} value={playerName} placeholder="Name" />
+                        <Input name="playerNumber" onChange={onChange} value={playerNumber} placeholder="Contact Number" />
+                    </div>
+                    <Button disabled={buttonDisabled} onClick={addTeamMember} color="success">
+                        ADD TEAM MEMBER
+                    </Button>
                 </div>
-                <Button disabled={buttonDisabled} onClick={addTeamMember} style={{margin:"5px"}} color="success">
-                    ADD TEAM MEMBER
+                <Button onClick={onRegister} color="success">
+                    SUBMIT
                 </Button>
             </div>
             <Button onClick={onRegister} color="success">

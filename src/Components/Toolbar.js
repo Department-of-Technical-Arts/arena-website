@@ -35,7 +35,10 @@ const Toolbar = () => {
     <div>
       <Navbar style={{position:"fixed", width:"100vw", zIndex:"100", backgroundColor:"rgba(190,60,55,0.4)", backdropFilter:"blur(10px)"}} full light>
         <NavbarBrand href="/"><img src={Logo} style={{objectFit:"cover", height:"6vh"}}/></NavbarBrand>
-        <NavbarToggler onClick={toggle} />
+        <NavbarToggler onClick={toggle} className="nav-bar-button">
+        <span style={{filter:"invert(100%)"}} class="navbar-toggler-icon"></span>
+          {isUser||!isOpen&&<div style={{position:"absolute", padding:"0.5rem", top:"3rem",transform:"translate(-80%, 100%)", height:"max-content", width:"max-content", backgroundColor:"yellow", borderRadius:"0.5rem"}}>REGISTER HERE</div>}
+        </NavbarToggler>
         {isUser ?
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
@@ -67,6 +70,7 @@ const Toolbar = () => {
           </Nav>
         </Collapse>}
       </Navbar>
+      
     </div>
   );
 }
