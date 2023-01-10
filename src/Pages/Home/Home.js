@@ -15,7 +15,7 @@ const Home = () => {
                 <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky())}>
                         <div className='first-page'>
-                            <video className='video-bg' autoPlay={true} loop muted><source src={video} type='video/mp4' /></video>
+                            <video className='video-bg' autoPlay={true} loop muted playsInline><source src={video} type='video/mp4' /></video>
                             <div className='title'><b>ARENA 2023</b></div>
                             <div className='sub-heading'>Where Legends Are Born</div>
 
