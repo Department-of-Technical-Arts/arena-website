@@ -8,7 +8,6 @@
 .content-gallery {
   position: fixed;
   justify-content: center;
-  z-index: 100;
 }
 
 .gallery-title {
@@ -88,11 +87,12 @@
   object-fit: cover;
   object-position: 50% 50%;
   cursor: pointer;
+  transform: scale(1);
 }
 
 .gallery-item:hover .image-gallery-grid {
   transform: scale(1.1);
-  transition: 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 .w-1 {
