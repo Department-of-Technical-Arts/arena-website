@@ -6,6 +6,7 @@ import bg1 from './bg-1.jpg'
 import bg2 from './bg-2.jpg'
 import bits from './bits-img.png'
 import bg3 from './bg-3.jpg'
+import bg4 from './bg-4.jpg'
 import logo from '../../Assets/phoenixplain.png'
 const Home = () => {
     return (<>
@@ -83,6 +84,12 @@ const Home = () => {
                     />
                     <h3>2015</h3>
                 </div>
+            </div>
+        </div>
+        <div className='after-movies' style={{backgroundImage:`url(${bg4})`, backgroundSize:"scale-down", backgroundPosition:"center"}}>
+            <div className='acc'>ACCOMMODATION</div>
+            <div className='movies'>
+                <div className='acc-desc'>Accommodations are available for ₹900 (where ₹800 is accommodation charge and ₹100 is security deposit which will be refunded later if no damage is caused by the team in our campus)</div>
             </div>
         </div>
         <div className='landing-footer'>
