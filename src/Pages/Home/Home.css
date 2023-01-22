@@ -183,6 +183,17 @@
   .about-desc {
     font-size: 2.5vw;
   }
+  .home-btn {
+    top: 70%;
+    font-size: 2vw;
+    width: 14rem;
+  }
+  .accom {
+    left: 30%;
+  }
+  .transport {
+    left: 70%;
+  }
   .landing-footer {
     flex-direction: column;
   }
@@ -217,6 +228,17 @@
   }
   .about-desc {
     font-size: 3vw;
+  }
+  .home-btn {
+    top: 80%;
+    font-size: 2.2vw;
+    width: 8rem;
+  }
+  .accom {
+    left: 30%;
+  }
+  .transport {
+    left: 70%;
   }
   .acc {
     font-size: 10vw;
