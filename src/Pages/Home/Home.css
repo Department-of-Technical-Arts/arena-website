@@ -36,7 +36,7 @@
   height: max-content;
   width: 13rem;
   text-align: center;
-  background: yellow;
+  background: rgb(177, 177, 0);
   border-radius: 0.5rem;
   z-index: inherit;
   cursor: pointer;
