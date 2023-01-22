@@ -50,6 +50,11 @@ const Toolbar = () => {
           </Nav>
           <Nav className="me-auto" navbar>
             <NavItem>
+              <NavLink href="/gallery">Gallery</NavLink>
+            </NavItem>
+          </Nav>
+          <Nav className="me-auto" navbar>
+            <NavItem>
               <NavLink href="/profile">My Profile</NavLink>
             </NavItem>
           </Nav>
