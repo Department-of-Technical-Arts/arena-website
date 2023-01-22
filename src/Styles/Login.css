@@ -1,14 +1,17 @@
 .login-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    background-image: url("../Pages/Home/bg-2.jpg");
+
 }
 
 .login-box {
-    width: 50%;
     padding: 2rem;
     text-align: center;
     display: flex;
     flex-direction: column;
+    width: 100vw;
+    backdrop-filter: blur(15px);
 }
 
 .google-login-button {

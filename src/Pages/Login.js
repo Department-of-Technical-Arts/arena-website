@@ -1,7 +1,6 @@
 import React from "react"
 import "../Styles/Login.css"
 import { googleRegistration, loginMethod, signinMethod, resetPassword } from "../config"
-import LoginImage from "../Assets/sports.png"
 import {Modal, ModalBody, ModalFooter, ModalHeader, Input, Label, Button} from "reactstrap"
 import { Navigate } from "react-router-dom"
 
@@ -38,12 +37,7 @@ class Login extends React.Component {
         }
         if (this.state.isLoggedIn) return <Navigate to="/register" />
         return (
-            <div className="login-container">
-                <div className="login-box">
-                    <h1>ARENA</h1>
-                    <h3>PLAY HARD. PLAY STRONG</h3>
-                    <img src={LoginImage} alt="login" />
-                </div>
+            <div className="login-container main-page">
                 {this.state.currentPage === "login" &&
                 <div className="login-box">
                     <h2>Login</h2>

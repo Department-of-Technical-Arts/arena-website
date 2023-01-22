@@ -1,0 +1,23 @@
+.main-page{
+    position: absolute;
+    overflow: scroll;
+    width: 100vw;
+    height: 90vh;
+    top:6rem;
+    
+}
+.main-page{
+    background-image: url("./Pages/Home/bg-3\ copy.jpg");
+    background-size: scale-down;
+    background-repeat: no-repeat;
+    background-position:center;
+    background-attachment: fixed;
+}/*
+.nav-bar-button::after{
+    position: relative;
+    top: 1rem;
+    width: 10rem;
+    height: 10rem;
+    background-color: yellow;
+
+} */

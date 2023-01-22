@@ -1,0 +1,29 @@
+.profile-photo-background {
+    background-color: yellow;
+    height: 10rem;
+}
+
+.profile-photo {
+    border-radius: 50%;
+    margin: 5rem 3rem 0rem 3rem;
+    width: 10rem;
+    height: 10rem;
+    font-size: 10rem;
+}
+
+.profile-container {
+    width: 80vw;
+    margin-left:10vw
+}
+
+.profile-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-input {
+    width: 12rem;
+    margin: 1rem 2rem 1rem 0rem;
+}
