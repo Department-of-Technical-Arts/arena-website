@@ -35,7 +35,7 @@ const Toolbar = () => {
   };
   return (
     <div>
-      <Navbar style={{position:"fixed", width:"100vw", zIndex:"100", backgroundColor:"rgba(190,60,55,0.4)", backdropFilter:"blur(10px)"}} full light>
+      {/* <Navbar style={{position:"fixed", width:"100vw", zIndex:"100", backgroundColor:"rgba(190,60,55,0.4)", backdropFilter:"blur(10px)"}} full light>
         <NavbarBrand href="/"><img src={Logo} style={{objectFit:"cover", height:"6rem"}}/></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         {isUser ?
@@ -88,7 +88,7 @@ const Toolbar = () => {
             </NavItem>
           </Nav>
         </Collapse>}
-      </Navbar>
+      </Navbar> */}
       <Navbar
         style={{
           position: "fixed",
