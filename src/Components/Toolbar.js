@@ -8,8 +8,9 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-} from "reactstrap";
+  NavLink
+} from 'reactstrap';
+import pdf from './rulebook.pdf';
 
 const Toolbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +35,6 @@ const Toolbar = () => {
   };
   return (
     <div>
-<<<<<<< HEAD
       <Navbar style={{position:"fixed", width:"100vw", zIndex:"100", backgroundColor:"rgba(190,60,55,0.4)", backdropFilter:"blur(10px)"}} full light>
         <NavbarBrand href="/"><img src={Logo} style={{objectFit:"cover", height:"6rem"}}/></NavbarBrand>
         <NavbarToggler onClick={toggle} />
@@ -57,7 +57,22 @@ const Toolbar = () => {
           </Nav>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink href="/profile">My Profile</NavLink>
+              <NavLink href="/gallery">Gallery</NavLink>
+            </NavItem>
+          </Nav>
+          <Nav className="me-auto" navbar>
+            <NavItem>
+              <NavLink href="/gallery">Gallery</NavLink>
+            </NavItem>
+          </Nav>
+          <Nav className="me-auto" navbar>
+            <NavItem>
+              <NavLink href="https://forms.gle/Ka3AvHUHRTiRBpYc8">Player Details</NavLink>
+            </NavItem>
+          </Nav>
+          <Nav className="me-auto" navbar>
+            <NavItem>
+              <NavLink href={pdf}>Rulebook 2023</NavLink>
             </NavItem>
           </Nav>
           <Nav className="me-auto" navbar>
@@ -73,7 +88,7 @@ const Toolbar = () => {
             </NavItem>
           </Nav>
         </Collapse>}
-=======
+      </Navbar>
       <Navbar
         style={{
           position: "fixed",
@@ -103,21 +118,6 @@ const Toolbar = () => {
         </NavbarToggler>
         {isUser ? (
           <Collapse isOpen={isOpen} navbar>
-            {/* <Nav className="me-auto" navbar>
-              <NavItem>
-                <NavLink href="/register">Register</NavLink>
-              </NavItem>
-            </Nav>
-            <Nav className="me-auto" navbar>
-              <NavItem>
-                <NavLink href="/edit-team">Edit Team</NavLink>
-              </NavItem>
-            </Nav>
-            <Nav className="me-auto" navbar>
-              <NavItem>
-                <NavLink href="/profile">My Profile</NavLink>
-              </NavItem>
-            </Nav> */}
             <Nav className="me-auto" navbar>
               <NavItem>
                 <NavLink href="/gallery">Gallery</NavLink>
@@ -133,19 +133,23 @@ const Toolbar = () => {
           </Collapse>
         ) : (
           <Collapse isOpen={isOpen} navbar>
-            {/* <Nav className="me-auto" navbar>
-              <NavItem>
-                <NavLink href="/login">Login / Register</NavLink>
-              </NavItem>
-            </Nav> */}
             <Nav className="me-auto" navbar>
               <NavItem>
                 <NavLink href="/gallery">Gallery</NavLink>
               </NavItem>
             </Nav>
+          <Nav className="me-auto" navbar>
+            <NavItem>
+              <NavLink href="https://forms.gle/Ka3AvHUHRTiRBpYc8">Player Details</NavLink>
+            </NavItem>
+          </Nav>
+          <Nav className="me-auto" navbar>
+            <NavItem>
+              <NavLink href={pdf}>Rulebook 2023</NavLink>
+            </NavItem>
+          </Nav>
           </Collapse>
         )}
->>>>>>> 9b055124654e98ee2e89e8054828d36ab22bbed8
       </Navbar>
     </div>
   );
