@@ -61,12 +61,12 @@ const Home = () => {
                   <b>ARENA 2023</b>
                 </div>
                 <div className="sub-heading sec">Where Legends Are Born</div>
-                <a href="https://forms.gle/z4Vw3GmwTU7VCp2M7">
+                <a href="https://forms.gle/HXdL7oMva7LUGxw77">
                   <button className="home-btn accom">
                     FOR ACCOMMODATION Click Here
                   </button>
                 </a>
-                <a href="https://forms.gle/F4KGFxCGTf7ag52dA">
+                <a href="https://forms.gle/HXdL7oMva7LUGxw77">
                   <button className="home-btn transport">
                     FOR TRANSPORTATION (Rs.100-150)
                     <br />
@@ -109,7 +109,7 @@ const Home = () => {
       <div className="after-movies" style={{ backgroundImage: `url(${bg3})` }}>
         <h1>AFTERMOVIES</h1>
         <div className="movies">
-        <div className="movie">
+          <div className="movie">
             <iframe
               width="853"
               height="480"
@@ -142,7 +142,6 @@ const Home = () => {
             />
             <h3>2016</h3>
           </div>
-          
         </div>
       </div>
       <div
